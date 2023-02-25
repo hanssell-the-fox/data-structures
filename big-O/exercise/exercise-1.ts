@@ -8,7 +8,7 @@
 //
 // The following function will run on O(3 + 4n) --> O(n)
 //
-function funChallenge(input: unknown[]) {
+function funChallenge(input: unknown[]): number {
   let a = 10; // O(1)
   a = 50 + 3; // O(1)
 
@@ -22,4 +22,4 @@ function funChallenge(input: unknown[]) {
 }
 
 // Dummy function
-function anotherFunction() {}
+function anotherFunction(): void {}
