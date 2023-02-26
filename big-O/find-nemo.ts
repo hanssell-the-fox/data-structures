@@ -6,15 +6,21 @@ findNemo(bigInput);
 findNemo(largeInput);
 
 // O(n) --> Linear Time
-function findNemo(names: string[]): void {
-  // I, personally, would like to use the following implementation for this exercise
-  // but, the purpose is to know how to implement the algorithm
-  // names.forEach((name) => {
-  //   if (isNemo(name)) foundNemo();
-  // });
+function findNemo(fishNames: string[]): void {
+  for (let index = 0; index < fishNames.length; index++) {
+    if (isNemo(fishNames[index])) foundNemo();
+  }
+}
 
-  for (let index = 0; index < names.length; index++) {
-    if (isNemo(names[index])) foundNemo();
+function findNemo2(fishNames: string[]): void {
+  fishNames.forEach((fish: string) => {
+    if (isNemo(fish)) foundNemo();
+  });
+}
+
+function findNemo3(fishNames: string[]): void {
+  for (const fish of fishNames) {
+    if (isNemo(fish)) foundNemo();
   }
 }
 
