@@ -1,4 +1,4 @@
-// Given 2 arrays, create a function that returns let's the user know (true/false),
+// Given 2 arrays, create a function that let's the user know (true/false),
 // whether these two arrays contain any common items
 //
 // For example:
@@ -16,11 +16,13 @@
 
 import { KeyMap } from "./types.ts";
 
-// Brute-force approach for this solution
-// O(a*b)
-export function containsCommonItem(arr1: unknown[], arr2: unknown[]): boolean {
-  for (const item of arr1) {
-    for (const match of arr2) {
+// Brute-force approach (Not efficient O(a*b)
+export function containsCommonItem(
+  items: unknown[],
+  otherItems: unknown[],
+): boolean {
+  for (const item of items) {
+    for (const match of otherItems) {
       if (item === match) return true;
     }
   }
