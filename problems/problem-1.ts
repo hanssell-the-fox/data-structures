@@ -14,6 +14,8 @@
 // Has 2 parameters - Always is arrays - Has no size limit
 // Returns TRUE/FALSE
 
+import { KeyMap } from "./types.ts";
+
 // Brute-force approach for this solution
 // O(a*b)
 export function containsCommonItem(arr1: unknown[], arr2: unknown[]): boolean {
@@ -24,4 +26,15 @@ export function containsCommonItem(arr1: unknown[], arr2: unknown[]): boolean {
   }
 
   return false;
+}
+
+// Efficient approach for this solution
+// O(a+b)
+export function containsCommonItem2(arr1: unknown[], arr2: unknown[]): boolean {
+  const mappedArray = new KeyMap().from(arr1);
+  return mapContainsItem(mappedArray, arr2);
+}
+
+function mapContainsItem(map: KeyMap, array: unknown[]): boolean {
+  return array.some((item) => map.contains(item as string));
 }
