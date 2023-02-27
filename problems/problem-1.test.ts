@@ -1,5 +1,9 @@
 import { assertEquals } from "https://deno.land/std@0.178.0/testing/asserts.ts";
-import { containsCommonItem, containsCommonItem2 } from "./problem-1.ts";
+import {
+  containsCommonItem,
+  containsCommonItem2,
+  containsCommonItem3,
+} from "./problem-1.ts";
 
 const array1 = ["a", "b", "c", "x"];
 const array2 = ["z", "y", "x"];
@@ -49,6 +53,28 @@ Deno.test("Testing better method", async (t) => {
 
   await t.step("Comparing NUMBERS should return false", () => {
     const result = containsCommonItem2(array4, array6);
+    assertEquals(false, result);
+  });
+});
+
+Deno.test("Testing language efficient method", async (t) => {
+  await t.step("Comparing STRINGS should return true", () => {
+    const result = containsCommonItem3(array1, array2);
+    assertEquals(true, result);
+  });
+
+  await t.step("Comparing STRINGS should return false", () => {
+    const result = containsCommonItem3(array1, array3);
+    assertEquals(false, result);
+  });
+
+  await t.step("Comparing NUMBERS should return true", () => {
+    const result = containsCommonItem3(array4, array5);
+    assertEquals(true, result);
+  });
+
+  await t.step("Comparing NUMBERS should return false", () => {
+    const result = containsCommonItem3(array4, array6);
     assertEquals(false, result);
   });
 });

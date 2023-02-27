@@ -38,3 +38,9 @@ export function containsCommonItem2(arr1: unknown[], arr2: unknown[]): boolean {
 function mapContainsItem(map: KeyMap, array: unknown[]): boolean {
   return array.some((item) => map.contains(item as string));
 }
+
+// Languages efficient approach
+//  O(a+b)
+export function containsCommonItem3(arr1: unknown[], arr2: unknown[]): boolean {
+  return arr1.some((item) => arr2.includes(item));
+}
