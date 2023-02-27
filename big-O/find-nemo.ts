@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-unused-vars
 import { bigInput, largeInput, smallInput } from "./data/nemo.ts";
 
 // Everyone of this functions runs on the same BIG O timing (O(n) --> Linear Time)
