@@ -3,7 +3,7 @@ import {
   containsCommonItem,
   containsCommonItem2,
   containsCommonItem3,
-} from "./problem-1.ts";
+} from "../exercise-1.ts";
 
 const array1 = ["a", "b", "c", "x"];
 const array2 = ["z", "y", "x"];
