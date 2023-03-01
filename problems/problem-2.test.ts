@@ -12,7 +12,7 @@ Deno.test("Should return true for a matching array", () => {
   assertEquals(true, hasMatchingPairs(array2, 8));
 });
 
-Deno.test("Should return false for a empty array", () => {
+Deno.test("Should return false for an empty array", () => {
   assertEquals(false, hasMatchingPairs([], 8));
 });
 
