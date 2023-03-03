@@ -6,7 +6,7 @@
 // (Hint, you may want to go line by line)
 
 //
-// The following function will run on O(3 + 4n) --> O(n)
+// The following function will run on O(4 + 7n) --> O(n)
 //
 function anotherFunChallenge(input: number): void {
   let a = 5; // O(1)

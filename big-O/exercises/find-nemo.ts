@@ -1,10 +1,7 @@
 // deno-lint-ignore-file no-unused-vars
-import { bigInput, largeInput, smallInput } from "./data/nemo.ts";
 
-// Everyone of this functions runs on the same BIG O timing (O(n) --> Linear Time)
-findNemo(smallInput);
-findNemo(bigInput);
-findNemo(largeInput);
+// Theses functions will loop through an array of names and show the message "Found DENO!"
+// for every name that is equal to Nemo
 
 // O(n) --> Linear Time
 function findNemo(fishNames: string[]): void {
@@ -13,12 +10,14 @@ function findNemo(fishNames: string[]): void {
   }
 }
 
+// O(n) --> Linear Time
 function findNemo2(fishNames: string[]): void {
   fishNames.forEach((fish: string) => {
     if (isNemo(fish)) foundNemo();
   });
 }
 
+// O(n) --> Linear Time
 function findNemo3(fishNames: string[]): void {
   for (const fish of fishNames) {
     if (isNemo(fish)) foundNemo();
