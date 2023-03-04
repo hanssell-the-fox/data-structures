@@ -23,5 +23,6 @@ function anotherFunChallenge(input: number): void {
     let p = j * 2; // O(n)
     let q = j * 2; // O(n)
   }
+
   let whoAmI = "I don't know"; // O(1)
 }
