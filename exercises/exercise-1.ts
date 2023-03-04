@@ -73,8 +73,10 @@ function mapItemsFrom(list: unknown[]): Map<unknown, boolean> {
   return map;
 }
 
-// O(a+b) Runtime - Languages efficient approach
-export function containsCommonItem3(
+// Language Efficient
+// Runtime Cost - O(n * m)
+// Space Cost   - O(1)
+export function listsHasSomeCommonItemV3(
   firstArray: unknown[],
   secondArray: unknown[],
 ): boolean {
