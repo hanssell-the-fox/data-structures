@@ -17,13 +17,13 @@
 // --
 
 // O(a*b) Runtime - Brute-force approach (Not efficient)
-export function containsCommonItem(
-  firstArray: unknown[],
-  secondArray: unknown[],
+export function hasSomeCommonItem(
+  firstList: unknown[],
+  secondList: unknown[],
 ): boolean {
-  for (const item of firstArray) {
-    for (const otherItem of secondArray) {
-      if (item === otherItem) return true;
+  for (const someItem of firstList) {
+    for (const otherItem of secondList) {
+      if (someItem === otherItem) return true;
     }
   }
 
