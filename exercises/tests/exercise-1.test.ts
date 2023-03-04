@@ -1,8 +1,8 @@
-import { assertEquals } from "https://deno.land/std@0.178.0/testing/asserts.ts";
+import { assertEquals } from "./deps.ts";
 import {
-  containsCommonItem,
-  containsCommonItem2,
-  containsCommonItem3,
+  listsHasSomeCommonItem,
+  listsHasSomeCommonItemV2,
+  listsHasSomeCommonItemV3,
 } from "../exercise-1.ts";
 
 const array1 = ["a", "b", "c", "x"];
@@ -13,68 +13,86 @@ const array4 = [1, 2.2, 3, 4];
 const array5 = [9, 10, 2.2];
 const array6 = [9, 10, 15];
 
-Deno.test("Testing brute force method", async (t) => {
-  await t.step("Comparing STRINGS should return true", () => {
-    const result = containsCommonItem(array1, array2);
+const array7 = [1, null, undefined, {}, []];
+const array8 = [[], false, 4];
+
+Deno.test("Testing O(n * m) - Brute force", async (t) => {
+  await t.step("STRINGS should return true", () => {
+    const result = listsHasSomeCommonItem(array1, array2);
     assertEquals(true, result);
   });
 
-  await t.step("Comparing STRINGS should return false", () => {
-    const result = containsCommonItem(array1, array3);
+  await t.step("STRINGS should return false", () => {
+    const result = listsHasSomeCommonItem(array1, array3);
     assertEquals(false, result);
   });
 
-  await t.step("Comparing NUMBERS should return true", () => {
-    const result = containsCommonItem(array4, array5);
+  await t.step("NUMBERS should return true", () => {
+    const result = listsHasSomeCommonItem(array4, array5);
     assertEquals(true, result);
   });
 
-  await t.step("Comparing NUMBERS should return false", () => {
-    const result = containsCommonItem(array4, array6);
-    assertEquals(false, result);
-  });
-});
-
-Deno.test("Testing better method", async (t) => {
-  await t.step("Comparing STRINGS should return true", () => {
-    const result = containsCommonItem2(array1, array2);
-    assertEquals(true, result);
-  });
-
-  await t.step("Comparing STRINGS should return false", () => {
-    const result = containsCommonItem2(array1, array3);
+  await t.step("NUMBERS should return false", () => {
+    const result = listsHasSomeCommonItem(array4, array6);
     assertEquals(false, result);
   });
 
-  await t.step("Comparing NUMBERS should return true", () => {
-    const result = containsCommonItem2(array4, array5);
-    assertEquals(true, result);
-  });
-
-  await t.step("Comparing NUMBERS should return false", () => {
-    const result = containsCommonItem2(array4, array6);
+  await t.step("Comparing array with no type", () => {
+    const result = listsHasSomeCommonItem(array7, array8);
     assertEquals(false, result);
   });
 });
 
-Deno.test("Testing language efficient method", async (t) => {
-  await t.step("Comparing STRINGS should return true", () => {
-    const result = containsCommonItem3(array1, array2);
+Deno.test("Testing O(n + m) - Better performance", async (t) => {
+  await t.step("STRINGS should return true", () => {
+    const result = listsHasSomeCommonItemV2(array1, array2);
     assertEquals(true, result);
   });
 
-  await t.step("Comparing STRINGS should return false", () => {
-    const result = containsCommonItem3(array1, array3);
+  await t.step("STRINGS should return false", () => {
+    const result = listsHasSomeCommonItemV2(array1, array3);
     assertEquals(false, result);
   });
 
-  await t.step("Comparing NUMBERS should return true", () => {
-    const result = containsCommonItem3(array4, array5);
+  await t.step("NUMBERS should return true", () => {
+    const result = listsHasSomeCommonItemV2(array4, array5);
     assertEquals(true, result);
   });
 
-  await t.step("Comparing NUMBERS should return false", () => {
-    const result = containsCommonItem3(array4, array6);
+  await t.step("NUMBERS should return false", () => {
+    const result = listsHasSomeCommonItemV2(array4, array6);
+    assertEquals(false, result);
+  });
+
+  await t.step("Comparing array with no type", () => {
+    const result = listsHasSomeCommonItemV2(array7, array8);
+    assertEquals(false, result);
+  });
+});
+
+Deno.test("Testing O(n + m) - Language method", async (t) => {
+  await t.step("STRINGS should return true", () => {
+    const result = listsHasSomeCommonItemV3(array1, array2);
+    assertEquals(true, result);
+  });
+
+  await t.step("STRINGS should return false", () => {
+    const result = listsHasSomeCommonItemV3(array1, array3);
+    assertEquals(false, result);
+  });
+
+  await t.step("NUMBERS should return true", () => {
+    const result = listsHasSomeCommonItemV3(array4, array5);
+    assertEquals(true, result);
+  });
+
+  await t.step("NUMBERS should return false", () => {
+    const result = listsHasSomeCommonItemV3(array4, array6);
+    assertEquals(false, result);
+  });
+
+  await t.step("Comparing array with no type", () => {
+    const result = listsHasSomeCommonItemV3(array7, array8);
     assertEquals(false, result);
   });
 });
