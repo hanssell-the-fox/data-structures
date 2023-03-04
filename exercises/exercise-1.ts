@@ -33,7 +33,7 @@ export function listsHasSomeCommonItem(
 }
 
 // Better approach (Efficient)
-// Runtime Cost - O(n * m)
+// Runtime Cost - O(n + m)
 // Space Cost   - O(n)
 export function listsHasSomeCommonItemV2(
   firstList: unknown[],
