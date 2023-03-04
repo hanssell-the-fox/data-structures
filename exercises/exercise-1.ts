@@ -16,8 +16,10 @@
 // Returns TRUE/FALSE
 // --
 
-// O(a*b) Runtime - Brute-force approach (Not efficient)
-export function hasSomeCommonItem(
+// Brute force approach (Not efficient)
+// Runtime Cost - O(n * m)
+// Space Cost   - O(1)
+export function listsHasSomeCommonItem(
   firstList: unknown[],
   secondList: unknown[],
 ): boolean {
@@ -30,10 +32,12 @@ export function hasSomeCommonItem(
   return false;
 }
 
-// O(a+b) Runtime - Efficient approach
-export function containsCommonItem2(
-  firstArray: unknown[],
-  secondArray: unknown[],
+// Better approach (Efficient)
+// Runtime Cost - O(n * m)
+// Space Cost   - O()
+export function listsHasSomeCommonItemV2(
+  firstList: unknown[],
+  secondList: unknown[],
 ): boolean {
   const mappedItems = createMapFrom(firstArray);
   return hasEqualItem(mappedItems, secondArray);
