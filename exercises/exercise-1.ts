@@ -34,26 +34,43 @@ export function listsHasSomeCommonItem(
 
 // Better approach (Efficient)
 // Runtime Cost - O(n * m)
-// Space Cost   - O()
+// Space Cost   - O(n)
 export function listsHasSomeCommonItemV2(
   firstList: unknown[],
   secondList: unknown[],
 ): boolean {
-  const mappedItems = createMapFrom(firstArray);
-  return hasEqualItem(mappedItems, secondArray);
+  // This let us always compare the smallest list to the bigger, reducing the amount
+  // of time needed
+  const [smallerList, largerList] = compareListsBySize(firstList, secondList);
+
+  // Map all items from the smaller list to an object
+  // (Brings better performance than just comparing two arrays)
+  const mappedList = mapItemsFrom(smallerList);
+
+  // Compare each item from the larger list with the map
+  for (const item of largerList) {
+    if (mappedList.has(item)) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
-function createMapFrom(array: unknown[]): Map<string, boolean> {
-  const mapOfItems = new Map<string, boolean>();
-  array.forEach((item) => mapOfItems.set(`${item}`, true));
-  return mapOfItems;
+function compareListsBySize(first: unknown[], second: unknown[]): unknown[][] {
+  return first.length < second.length ? [first, second] : [second, first];
 }
 
-function hasEqualItem(
-  map: Map<string, boolean>,
-  array: unknown[],
-): boolean {
-  return array.some((item) => map.has(`${item}`));
+// Create a map from the items in the list
+// ex: [1, 2] will be { 1: true, 2: true }
+function mapItemsFrom(list: unknown[]): Map<unknown, boolean> {
+  const map = new Map<unknown, boolean>();
+
+  for (const item of list) {
+    map.set(item, true);
+  }
+
+  return map;
 }
 
 // O(a+b) Runtime - Languages efficient approach
