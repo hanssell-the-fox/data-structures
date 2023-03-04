@@ -3,7 +3,7 @@ import {
   listsHasSomeCommonItem,
   listsHasSomeCommonItemV2,
   listsHasSomeCommonItemV3,
-} from "../exercise-1.ts";
+} from "../item-in-array.ts";
 
 const array1 = ["a", "b", "c", "x"];
 const array2 = ["z", "y", "x"];

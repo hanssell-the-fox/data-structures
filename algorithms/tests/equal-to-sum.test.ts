@@ -1,5 +1,5 @@
-import { assertEquals } from "https://deno.land/std@0.178.0/testing/asserts.ts";
-import { hasMatchingPairs } from "../exercise-2.ts";
+import { assertEquals } from "./deps.ts";
+import { hasMatchingPairs } from "../equal-to-sum.ts";
 
 const array1 = [1, 2, 3, 9];
 const array2 = [1, 2, 4, 4];
